@@ -28,10 +28,39 @@ All endpoints require **OAuth 2.0 Bearer Token** authentication.
 ### GET /pets
 Retrieve a list of available pets for adoption.
 
-GET /pets?species=dog
-Host: api.victorpets.com
+Request 
+```
+GET /pets?species=dog&page=1
+Host: api.pawfectpets.com
 Authorization: Bearer {access_token}
 
+```
+Response
+```
+{
+  "data": [
+    {
+      "id": "pet_101",
+      "name": "Bella",
+      "species": "dog",
+      "breed": "Labrador Retriever",
+      "age": 2,
+      "available": true
+    },
+    {
+      "id": "pet_102",
+      "name": "Milo",
+      "species": "dog",
+      "breed": "Beagle",
+      "age": 4,
+      "available": true
+    }
+  ],
+  "page": 1,
+  "total_pages": 5
+}
+
+```
 
 
 ## Status Codes
