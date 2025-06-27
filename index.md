@@ -22,19 +22,23 @@ All endpoints require **OAuth 2.0 Bearer Token** authentication.
 
 ### Step 1: Request an Access Token
 
-**POST** `/oauth/token`
 
-```bash
-curl -X POST https://api.victorpets.com/oauth/token \
-  -H "Content-Type: application/json" \
-  -d '{
-        "client_id": "your_client_id",
-        "client_secret": "your_client_secret",
-        "grant_type": "client_credentials"
-      }'
-```
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIsIn...",
-  "token_type": "Bearer",
-  "expires_in": 3600
-}
+## Endpoints
+
+### GET /pets
+Retrieve a list of available pets for adoption.
+
+GET /pets?species=dog
+Host: api.victorpets.com
+Authorization: Bearer {access_token}
+
+
+
+## Status Codes
+
+| HTT Code | Error |    Messaage | 
+| -------- | ------- | -----------| 
+| 400      | UNAUTHORISED | Request body is missing required fields| 
+| 401      | INVALID     |Access token is missing or expired| 
+| 500     | SERVER ERROR    |Something went wrong with our servers| 
+
