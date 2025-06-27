@@ -1,44 +1,34 @@
 ---
-title: Account Balance API Reference
-description: Retrieve real-time balances for JPMorgan accounts.
+title: Victor Pets API Reference
+description: RESTful API documentation for the Pawfect Pets adoption and veterinary service.
 ---
 
-# 📘 Account Balance API – Reference
+# 📘 Victor Pets API – Developer Guide
 
-The **Account Balance API** allows you to retrieve real-time balances for JPMorgan-held accounts. Use it to query current and available balances for domestic and international accounts, useful for treasury dashboards, ERP systems, and finance apps.
+Welcome to the **Pawfect Pets API** – your gateway to managing pets and appointments for our virtual pet adoption and veterinary service.
 
----
+This RESTful API allows partner apps and admin portals to:
 
-## 🔗 Endpoint
-
-`GET /v1/accounts/{account_id}/balances`
-
----
-
-## 🧾 Request
-
-### Path Parameters
-
-| Name         | Type   | Required | Description                            |
-|--------------|--------|----------|----------------------------------------|
-| `account_id` | string | ✅ Yes   | Unique identifier of the bank account. |
-
-### Query Parameters
-
-| Name          | Type   | Required | Description                                                  |
-|---------------|--------|----------|--------------------------------------------------------------|
-| `as_of_date`  | string | ❌ No    | Date in `YYYY-MM-DD` format. Defaults to current date.       |
-| `currency`    | string | ❌ No    | ISO 4217 currency code (e.g., `USD`, `GBP`). Optional.       |
-
-### Headers
-
-| Header             | Required | Description                              |
-|--------------------|----------|------------------------------------------|
-| `Authorization`    | ✅ Yes   | `Bearer {access_token}`                  |
-| `Content-Type`     | ✅ Yes   | `application/json`                       |
-| `x-request-id`     | ❌ No    | Optional ID for request traceability.    |
+- 🐾 Create and manage pet records  
+- 📋 View adoption listings  
+- 📅 Schedule appointments  
+- 🔐 Authenticate securely via OAuth 2.0  
 
 ---
 
-## 📥 Example Request
-### tested ok
+## 🔐 Authentication
+
+All endpoints require **OAuth 2.0 Bearer Token** authentication.
+
+### Step 1: Request an Access Token
+
+**POST** `/oauth/token`
+
+```bash
+curl -X POST https://api.pawfectpets.com/oauth/token \
+  -H "Content-Type: application/json" \
+  -d '{
+        "client_id": "your_client_id",
+        "client_secret": "your_client_secret",
+        "grant_type": "client_credentials"
+      }'
