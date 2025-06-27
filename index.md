@@ -12,7 +12,7 @@ This RESTful API allows partner apps and admin portals to:
 - 🐾 Create and manage pet records  
 - 📋 View adoption listings  
 - 📅 Schedule appointments  
-- 🔐 Authenticate securely via OAuth 2.0  
+- 🔐 Authenticate securely via Access Token
 
 ---
 
